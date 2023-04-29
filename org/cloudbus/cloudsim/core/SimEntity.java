@@ -8,8 +8,9 @@
 
 package org.cloudbus.cloudsim.core;
 
-import org.cloudbus.cloudsim.Log;
-import org.cloudbus.cloudsim.NetworkTopology;
+// import org.cloudbus.cloudsim.Log;
+// import org.cloudbus.cloudsim.NetworkTopology;
+import org.cloudbus.cloudsim.*;
 import org.cloudbus.cloudsim.core.predicates.Predicate;
 
 /**

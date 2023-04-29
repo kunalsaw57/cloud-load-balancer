@@ -14,15 +14,18 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import org.cloudbus.cloudsim.core.CloudSim;
-import org.cloudbus.cloudsim.core.CloudSimTags;
-import org.cloudbus.cloudsim.core.SimEntity;
-import org.cloudbus.cloudsim.core.SimEvent;
-import org.cloudbus.cloudsim.lists.CloudletList;
-import org.cloudbus.cloudsim.lists.VmList;
+// import org.cloudbus.cloudsim.core.CloudSim;
+// import org.cloudbus.cloudsim.core.CloudSimTags;
+// import org.cloudbus.cloudsim.core.SimEntity;
+// import org.cloudbus.cloudsim.core.SimEvent;
+import org.cloudbus.cloudsim.core.*;
+import org.cloudbus.cloudsim.lists.*;
+// import org.cloudbus.cloudsim.lists.CloudletList;
+// import org.cloudbus.cloudsim.lists.VmList;
 
 /**
- * DatacentreBroker represents a broker acting on behalf of a user. It hides VM management, as vm
+ * DatacentreBroker represents a broker acting on behalf of a user. It hides VM
+ * management, as vm
  * creation, sumbission of cloudlets to this VMs and destruction of VMs.
  * 
  * @author Rodrigo N. Calheiros
@@ -73,8 +76,9 @@ public class DatacenterBroker extends SimEntity {
 	/**
 	 * Created a new DatacenterBroker object.
 	 * 
-	 * @param name name to be associated with this entity (as required by Sim_entity class from
-	 *            simjava package)
+	 * @param name name to be associated with this entity (as required by Sim_entity
+	 *             class from
+	 *             simjava package)
 	 * @throws Exception the exception
 	 * @pre name != null
 	 * @post $none
@@ -100,7 +104,8 @@ public class DatacenterBroker extends SimEntity {
 	}
 
 	/**
-	 * This method is used to send to the broker the list with virtual machines that must be
+	 * This method is used to send to the broker the list with virtual machines that
+	 * must be
 	 * created.
 	 * 
 	 * @param list the list
@@ -126,7 +131,7 @@ public class DatacenterBroker extends SimEntity {
 	 * Specifies that a given cloudlet must run in a specific virtual machine.
 	 * 
 	 * @param cloudletId ID of the cloudlet being bount to a vm
-	 * @param vmId the vm id
+	 * @param vmId       the vm id
 	 * @pre cloudletId > 0
 	 * @pre id > 0
 	 * @post $none
@@ -145,7 +150,7 @@ public class DatacenterBroker extends SimEntity {
 	@Override
 	public void processEvent(SimEvent ev) {
 		switch (ev.getTag()) {
-		// Resource characteristics request
+			// Resource characteristics request
 			case CloudSimTags.RESOURCE_CHARACTERISTICS_REQUEST:
 				processResourceCharacteristicsRequest(ev);
 				break;
@@ -289,7 +294,8 @@ public class DatacenterBroker extends SimEntity {
 	}
 
 	/**
-	 * Overrides this method when making a new and different type of Broker. This method is called
+	 * Overrides this method when making a new and different type of Broker. This
+	 * method is called
 	 * by {@link #body()} for incoming unknown tags.
 	 * 
 	 * @param ev a SimEvent object
@@ -396,6 +402,7 @@ public class DatacenterBroker extends SimEntity {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see cloudsim.core.SimEntity#shutdownEntity()
 	 */
 	@Override
@@ -405,6 +412,7 @@ public class DatacenterBroker extends SimEntity {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see cloudsim.core.SimEntity#startEntity()
 	 */
 	@Override
@@ -427,7 +435,7 @@ public class DatacenterBroker extends SimEntity {
 	/**
 	 * Sets the vm list.
 	 * 
-	 * @param <T> the generic type
+	 * @param <T>    the generic type
 	 * @param vmList the new vm list
 	 */
 	protected <T extends Vm> void setVmList(List<T> vmList) {
@@ -448,7 +456,7 @@ public class DatacenterBroker extends SimEntity {
 	/**
 	 * Sets the cloudlet list.
 	 * 
-	 * @param <T> the generic type
+	 * @param <T>          the generic type
 	 * @param cloudletList the new cloudlet list
 	 */
 	protected <T extends Cloudlet> void setCloudletList(List<T> cloudletList) {
@@ -469,7 +477,7 @@ public class DatacenterBroker extends SimEntity {
 	/**
 	 * Sets the cloudlet submitted list.
 	 * 
-	 * @param <T> the generic type
+	 * @param <T>                   the generic type
 	 * @param cloudletSubmittedList the new cloudlet submitted list
 	 */
 	protected <T extends Cloudlet> void setCloudletSubmittedList(List<T> cloudletSubmittedList) {
@@ -490,7 +498,7 @@ public class DatacenterBroker extends SimEntity {
 	/**
 	 * Sets the cloudlet received list.
 	 * 
-	 * @param <T> the generic type
+	 * @param <T>                  the generic type
 	 * @param cloudletReceivedList the new cloudlet received list
 	 */
 	protected <T extends Cloudlet> void setCloudletReceivedList(List<T> cloudletReceivedList) {
@@ -511,7 +519,7 @@ public class DatacenterBroker extends SimEntity {
 	/**
 	 * Sets the vm list.
 	 * 
-	 * @param <T> the generic type
+	 * @param <T>            the generic type
 	 * @param vmsCreatedList the vms created list
 	 */
 	protected <T extends Vm> void setVmsCreatedList(List<T> vmsCreatedList) {
